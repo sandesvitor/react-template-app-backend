@@ -6,8 +6,6 @@ const path = require('path')
 const fs = require('fs')
 const port = 3333
 
-const DataBaseHandler = require('./lib/db')
-
 const databaseURL = './DB_temp/articles.json'
 const ArticlesClass = require('./lib/articles')
 const Articles = new ArticlesClass((databaseURL))
@@ -17,23 +15,8 @@ const cors = require('cors')
 
 
 
-Articles.updateArticles({
-    id: 4,
-    title: "Título",
-    subtitle: "Subtítulo",
-    author: "Autor",
-    content: "Olá!"
-})
-console.log(Articles.articles)
-
-Articles.updateArticles({
-    id: 1,
-    author: "Novo autor",
-    content: "New Content"
-})
-
-console.log(Articles.articles)
-
+console.debug("Data fetch on server start:")
+console.debug(Articles.articles)
 
 
 // PERMITINDO ACESSO DO CLIENT:
@@ -69,6 +52,7 @@ app.get('/articles:id', (req, res, next) => {
 })
 
 app.post('/articles', (req, res, next) => {
+
 })
 
 // PORT

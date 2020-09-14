@@ -1,26 +1,37 @@
 [
-    {
-        "id": 1,
-        "author": "Autor",
-        "title": "Título",
-        "subtitle": "Subtítulo",
-        "content": "Olá!",
-        "creatingDate": 1600061070792
-    },
-    {
-        "id": 2,
-        "author": "Autor",
-        "title": "Título",
-        "subtitle": "Subtítulo",
-        "content": "Olá!",
-        "creatingDate": 1600061070792
-    },
-    {
-        "id": 3,
-        "author": "Autor",
-        "title": "Título",
-        "subtitle": "Subtítulo",
-        "content": "Olá!",
-        "creatingDate": 1600061070792
-    }
+  {
+    "id": 1,
+    "author": "Autor",
+    "title": "Título",
+    "subtitle": "Subtítulo",
+    "content": "Olá!",
+    "createdDate": 1600089396980
+  },
+  {
+    "id": 2,
+    "author": "Autor",
+    "title": "Título",
+    "subtitle": "Subtítulo",
+    "content": "Olá!",
+    "createdDate": 1600090312939,
+    "updatedDate": 1600090320350
+  },
+  {
+    "id": 3,
+    "author": "Autor",
+    "title": "Título",
+    "subtitle": "Subtítulo",
+    "content": "Olá!",
+    "createdDate": 1600090559619,
+    "updatedDate": 1600090690405
+  },
+  {
+    "id": 4,
+    "author": "NOVO AUTOR",
+    "title": "Título",
+    "subtitle": "Subtítulo",
+    "content": "Olá!",
+    "createdDate": 1600090938483,
+    "updatedDate": 1600091403485
+  }
 ]
