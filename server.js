@@ -48,11 +48,21 @@ app.post('/title', (req, res, next) => {
 })
 
 // ESCREVER E PEGAR ARTIGOS:
-app.get('/articles:id', (req, res, next) => {
+app.get('/articles/', (req, res, next) => {
+    res.send(Articles.articles)
+})
+
+app.get('/articles/:id', (req, res, next) => {
+    let id = parseInt(req.params.id)
+    let articleSelected = Articles.getArticle(id)
+    console.debug("Post request for article of id: [%s]", id)
+    console.debug(articleSelected)
+    res.send(articleSelected)
 })
 
 app.post('/articles', (req, res, next) => {
-
+    let newArticle = req.body
+    Articles.updateArticles(newArticle)
 })
 
 // PORT
