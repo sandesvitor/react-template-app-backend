@@ -1,0 +1,23 @@
+[
+    {
+        "article1": {
+            "title": "Título1",
+            "date": "22/06/2020",
+            "content": "Conteúdo"
+        }
+    },
+    {
+        "article1": {
+            "title": "Título1",
+            "date": "22/06/2020",
+            "content": "Conteúdo"
+        }
+    },
+    {
+        "article1": {
+            "title": "Título1",
+            "date": "22/06/2020",
+            "content": "Conteúdo"
+        }
+    }
+]
