@@ -6,6 +6,8 @@ const path = require('path')
 const fs = require('fs')
 const port = 3333
 
+const DataBaseHandler = require('./lib/db')
+
 const databaseURL = './DB_temp/articles.json'
 const ArticlesClass = require('./lib/articles')
 const Articles = new ArticlesClass((databaseURL))
@@ -26,6 +28,7 @@ console.log(Articles.articles)
 
 Articles.updateArticles({
     id: 1,
+    author: "Novo autor",
     content: "New Content"
 })
 
