@@ -1,37 +1,19 @@
 [
   {
-    "id": 1,
-    "author": "Autor",
-    "title": "Título",
-    "subtitle": "Subtítulo",
-    "content": "Olá!",
-    "createdDate": 1600089396980
-  },
-  {
     "id": 2,
-    "author": "Autor",
-    "title": "Título",
-    "subtitle": "Subtítulo",
-    "content": "Olá!",
-    "createdDate": 1600090312939,
-    "updatedDate": 1600090320350
+    "author": "Vitor",
+    "title": "Meu artigo",
+    "subtitle": "",
+    "content": "<p>Olá meus queridos!</p>",
+    "createdDate": 1600108867072
   },
   {
-    "id": 3,
-    "author": "Autor",
-    "title": "Título",
-    "subtitle": "Subtítulo",
-    "content": "Olá!",
-    "createdDate": 1600090559619,
-    "updatedDate": 1600090690405
-  },
-  {
-    "id": 4,
-    "author": "NOVO AUTOR",
-    "title": "Título",
-    "subtitle": "Subtítulo",
-    "content": "Olá!",
-    "createdDate": 1600090938483,
-    "updatedDate": 1600091403485
+    "id": 1,
+    "author": "Vitor",
+    "title": "Meu artigo",
+    "subtitle": "",
+    "content": "<p>Mudei de idiea</p>",
+    "createdDate": 1600108860840,
+    "updatedDate": 1600108880123
   }
 ]

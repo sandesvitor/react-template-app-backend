@@ -14,11 +14,6 @@ const cors = require('cors')
 // const multer = require('multer') ---> para Upload de arquivos!
 
 
-
-console.debug("Data fetch on server start:")
-console.debug(Articles.articles)
-
-
 // PERMITINDO ACESSO DO CLIENT:
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000")
@@ -60,8 +55,11 @@ app.get('/articles/:id', (req, res, next) => {
     res.send(articleSelected)
 })
 
-app.post('/articles', (req, res, next) => {
+app.post('/articles/:id', (req, res, next) => {
     let newArticle = req.body
+    let id = parseInt(req.params.id)
+    console.debug("POST request for new article of id: [%s]", id)
+    console.debug(newArticle)
     Articles.updateArticles(newArticle)
 })
 
