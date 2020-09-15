@@ -14,7 +14,7 @@ class Article {
             title: this.title,
             subtitle: this.subtitle,
             content: this.content,
-            createdDate: Date.now()
+            createdDate: new Date().toString()
         }
     }
 }

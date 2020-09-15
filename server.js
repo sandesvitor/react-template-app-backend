@@ -3,12 +3,9 @@ const express = require('express')
 const app = express()
 const path = require('path')
 
-const fs = require('fs')
 const port = 3333
 
-const databaseURL = './DB_temp/articles.json'
-const ArticlesClass = require('./lib/articles')
-const Articles = new ArticlesClass((databaseURL))
+const POSTS = require('./models/posts')
 
 const cors = require('cors')
 // const multer = require('multer') ---> para Upload de arquivos!
@@ -25,42 +22,36 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/index.html'))
-})
-
 // MUDAR TÍTULO DA NAVBAR
 app.get('/title', (req, res, next) => {
-    res.sendFile(path.join(__dirname + '/DB_temp/state.json'))
+    res.send('CONNECTING DATABASE')
 })
 
 app.post('/title', (req, res, next) => {
     let title = req.body
-    fs.writeFileSync('./DB_temp/state.json', JSON.stringify(title, null, 2))
 
-    console.debug('Wrinting title on JSON file:')
+    console.debug('Connecting to database')
     console.debug(title)
 })
 
 // ESCREVER E PEGAR ARTIGOS:
-app.get('/articles/', (req, res, next) => {
-    res.send(Articles.articles)
+app.get('/articles', async (req, res, next) => {
+    try {
+        res.send(await POSTS.findAll())
+    } catch (exception) {
+        console.debug('Exception on accessing database: ', exception)
+    }
 })
 
 app.get('/articles/:id', (req, res, next) => {
     let id = parseInt(req.params.id)
-    let articleSelected = Articles.getArticle(id)
     console.debug("Post request for article of id: [%s]", id)
-    console.debug(articleSelected)
-    res.send(articleSelected)
 })
 
 app.post('/articles/:id', (req, res, next) => {
     let newArticle = req.body
     let id = parseInt(req.params.id)
     console.debug("POST request for new article of id: [%s]", id)
-    console.debug(newArticle)
-    Articles.updateArticles(newArticle)
 })
 
 // PORT
