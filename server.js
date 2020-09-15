@@ -39,19 +39,60 @@ app.get('/articles', async (req, res, next) => {
     try {
         res.send(await POSTS.findAll())
     } catch (exception) {
-        console.debug('Exception on accessing database: ', exception)
+        console.debug('Exception on accessing database\nfor GET request for all articles: ', exception)
     }
 })
 
-app.get('/articles/:id', (req, res, next) => {
+app.get('/articles/:id', async (req, res, next) => {
     let id = parseInt(req.params.id)
-    console.debug("Post request for article of id: [%s]", id)
+    try {
+
+        res.send(
+            await POSTS.find({
+                where: {
+                    id: id,
+                }
+            }).then(() => console.debug("Post request for article of id: [%s]", id))
+        )
+
+    } catch (exception) {
+        console.debug('Exception on accessing database\nwith GET request for article by id: ', exception)
+    }
 })
 
-app.post('/articles/:id', (req, res, next) => {
-    let newArticle = req.body
-    let id = parseInt(req.params.id)
-    console.debug("POST request for new article of id: [%s]", id)
+app.post('/articles', async (req, res, next) => {
+    try {
+        let newArticle = req.body
+        console.debug("POST request for new article:")
+        console.debug(newArticle)
+
+        await POSTS.create({
+            author: newArticle.author,
+            title: newArticle.title,
+            subtitle: newArticle.subtitle,
+            content: newArticle.content
+        })
+
+    } catch (exception) {
+        console.debug('Exception on accessing database\nwith POST request for new article: ', exception)
+    }
+})
+
+app.put('/article/:articleId', async (req, res, next) => {
+    try {
+        let updatedArticle = {
+            author: req.body.author,
+            title: req.body.title,
+            subtitle: req.body.subtitle,
+            content: req.body.content
+        }
+        await POSTS.update(
+            updatedArticle,
+            { returning: true, where: { id: req.params.articleId } }
+        ).then(() => console.log("Article Updated Successful!"))
+    } catch (exception) {
+        console.debug('Exception on accessing database\nwith POST request for new article: ', exception)
+    }
 })
 
 // PORT
